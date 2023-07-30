@@ -18,12 +18,12 @@ class RecipeItemActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         // Title
-        supportActionBar?.title = "Recipe Items"
+        supportActionBar?.title = "Recipe Item"
 
         val recipe_title = intent.getStringExtra("recipe_title")
         val recipe_type = intent.getStringExtra("recipe_type")
         val recipe_difficulty = intent.getStringExtra("recipe_difficulty")
-        val recipe_image = intent.getIntExtra("recipe_image", R.drawable.ugali)
+        val recipe_image = intent.getIntExtra("recipe_image", R.drawable.beef)
         val recipe_quantity = intent.getIntExtra("recipe_quantity",3)
         val recipe_ingredients = intent.getStringExtra("recipe_ingredients")
         val recipe_preparation_steps = intent.getStringExtra("recipe_preparation_steps")
