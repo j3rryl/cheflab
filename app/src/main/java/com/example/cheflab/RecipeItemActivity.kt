@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import com.flaviofaria.kenburnsview.KenBurnsView
+import com.squareup.picasso.Picasso
 
 class RecipeItemActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,20 +29,21 @@ class RecipeItemActivity : AppCompatActivity() {
         supportActionBar?.title = recipe_title
 
 //        val rTitle: TextView = findViewById(R.id.recipe_title)
-        val rImage: ImageView = findViewById(R.id.recipe_image)
         val rIngredients: TextView = findViewById(R.id.ingredients)
         val rPrepSteps: TextView = findViewById(R.id.prep_steps)
         val rRecipeMealType: TextView = findViewById(R.id.recipe_meal)
         val rCookingDifficulty: TextView = findViewById(R.id.cooking_difficulty)
 
         val rNumberPeopleServed: TextView = findViewById(R.id.number_people_served)
+        val kenBurnsView: KenBurnsView = findViewById(R.id.kbView)
 
         rPrepSteps.text = prep
         rRecipeMealType.text= meal_type
         rIngredients.text = ingredients
         rCookingDifficulty.text = "Difficulty: "+difficulty
         rNumberPeopleServed.text = people_served.toString()
-        rImage.setImageResource(image_id)
+        Picasso.get().load(image_id).into(kenBurnsView)
+
 
     }
 }
