@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import com.example.cheflab.R
 import com.example.cheflab.models.RecipeItem
 
-class RecipeAdapter(private val context: Activity, private val arrayList: ArrayList<RecipeItem>): ArrayAdapter<RecipeItem>(context,
+class RecipeListAdapter(private val context: Activity, private val arrayList: ArrayList<RecipeItem>): ArrayAdapter<RecipeItem>(context,
     R.layout.recipe_card, arrayList) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val inflater: LayoutInflater = LayoutInflater.from(context)

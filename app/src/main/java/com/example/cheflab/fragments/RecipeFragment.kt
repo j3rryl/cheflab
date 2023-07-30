@@ -1,6 +1,7 @@
 package com.example.cheflab.fragments
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +11,8 @@ import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.cheflab.R
-import com.example.cheflab.adapters.RecipeAdapter
+import com.example.cheflab.RecipeItemActivity
+import com.example.cheflab.adapters.RecipeListAdapter
 import com.example.cheflab.models.RecipeItem
 
 // TODO: Rename parameter arguments, choose names that match
@@ -238,32 +240,32 @@ class RecipeFragment : Fragment() {
         }
 
         listView.isClickable = true
-        listView.adapter = RecipeAdapter(requireContext() as Activity, recipeArrayList)
+        listView.adapter = RecipeListAdapter(requireContext() as Activity, recipeArrayList)
 
-//        listView.setOnItemClickListener { parent, view, position, id ->
-//            val meal_type = meal_type[position]
-//            val difficulty = difficulty[position]
-//            val imageId = imageId[position]
-//            val recipe_title = recipe_title[position]
-//            val people_served = people_served[position]
-//            val ingredients = ingredients[position]
-//            val preparation_steps = preparation_steps[position]
-//
-//
-//            val i = Intent(requireContext() as Activity, RecipeActivity::class.java)
-//            i.putExtra("meal_type", meal_type)
-//            i.putExtra("difficulty", difficulty)
-//            i.putExtra("image_id", imageId)
-//
-//            i.putExtra("recipe_title", recipe_title)
-//            i.putExtra("people_served", people_served)
-//            i.putExtra("ingredients", ingredients)
-//            i.putExtra("preparation_steps", preparation_steps)
-//
-//
-//            startActivity(i)
-//
-//        }
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val meal_type = meal_type[position]
+            val difficulty = difficulty[position]
+            val imageId = imageId[position]
+            val recipe_title = recipe_title[position]
+            val people_served = people_served[position]
+            val ingredients = ingredients[position]
+            val preparation_steps = preparation_steps[position]
+
+
+            val i = Intent(requireContext() as Activity, RecipeItemActivity::class.java)
+            i.putExtra("meal_type", meal_type)
+            i.putExtra("difficulty", difficulty)
+            i.putExtra("image_id", imageId)
+
+            i.putExtra("recipe_title", recipe_title)
+            i.putExtra("people_served", people_served)
+            i.putExtra("ingredients", ingredients)
+            i.putExtra("preparation_steps", preparation_steps)
+
+
+            startActivity(i)
+
+        }
 
         return root
 
