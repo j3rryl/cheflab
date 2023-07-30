@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         loadFragment(HomeFragment())
         binding.bottomNavigationBar.setItemSelected(R.id.nav_home, true)
-        binding.bottomNavigationBar.showBadge(R.id.nav_recipes, 8)
+        binding.bottomNavigationBar.showBadge(R.id.nav_recipes, 15)
 
         setUpTabBar()
     }
