@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import com.flaviofaria.kenburnsview.KenBurnsView
 import com.squareup.picasso.Picasso
 
@@ -38,8 +39,17 @@ class RecipeItemActivity : AppCompatActivity() {
         recipePreparationSteps.text = recipe_preparation_steps
         recipeType.text= recipe_type
         recipeIngredients.text = recipe_ingredients
-        recipeDifficulty.text = "Difficulty: "+recipe_difficulty
-        recipeQuantity.text = recipe_quantity.toString()
+        recipeDifficulty.text = recipe_difficulty
+        if(recipeDifficulty.text=="Beginner"){
+            recipeDifficulty.setTextColor(ContextCompat.getColor(this, R.color.green))
+        }
+        else if(recipeDifficulty.text=="Intermediate"){
+            recipeDifficulty.setTextColor(ContextCompat.getColor(this, R.color.yellow))
+        }
+        else if(recipeDifficulty.text=="Advanced"){
+            recipeDifficulty.setTextColor(ContextCompat.getColor(this, R.color.red))
+        }
+        recipeQuantity.text = recipe_quantity.toString() + " servings."
         Picasso.get().load(recipe_image).into(kenBurnsView)
     }
 }
