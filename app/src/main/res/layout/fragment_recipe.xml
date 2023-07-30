@@ -20,7 +20,8 @@
         android:id="@+id/list_of_recipes"
         android:layout_width="match_parent"
         tools:listitem="@layout/recipe_card"
-        android:dividerHeight="10dp"
-        android:layout_height="match_parent" />
+        android:divider="@null"
+        android:layout_height="match_parent"
+        android:background="@color/gray"/>
 
 </FrameLayout>

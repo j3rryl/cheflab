@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.example.cheflab.R
 import com.example.cheflab.models.RecipeItem
 
@@ -25,7 +26,16 @@ class RecipeAdapter(private val context: Activity, private val arrayList: ArrayL
         imageView.setImageResource(arrayList[position].imageId)
         recipeTitle.text=arrayList[position].recipe_title
         mealType.text=arrayList[position].meal_type
-        recipeDifficulty.text="Difficulty: "+arrayList[position].difficulty
+        recipeDifficulty.text=arrayList[position].difficulty
+        if(recipeDifficulty.text=="Beginner"){
+            recipeDifficulty.setTextColor(ContextCompat.getColor(context, R.color.green))
+        }
+        else if(recipeDifficulty.text=="Intermediate"){
+            recipeDifficulty.setTextColor(ContextCompat.getColor(context, R.color.yellow))
+        }
+        else if(recipeDifficulty.text=="Advanced"){
+            recipeDifficulty.setTextColor(ContextCompat.getColor(context, R.color.red))
+        }
 
         return view
     }
