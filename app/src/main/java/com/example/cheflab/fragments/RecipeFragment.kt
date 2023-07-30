@@ -59,8 +59,7 @@ class RecipeFragment : Fragment() {
         listView = root.findViewById(R.id.list_of_recipes)
 
         // Sample data for the ListView
-        val data = listOf("Item 1", "Item 2", "Item 3", "Item 4", "Item 5")
-        val imageId = intArrayOf(
+        val recipe_images = intArrayOf(
             R.drawable.beef,
             R.drawable.brocoli,
             R.drawable.cake,
@@ -70,7 +69,7 @@ class RecipeFragment : Fragment() {
             R.drawable.rice,
             R.drawable.ugali
         )
-        val recipe_title = arrayOf(
+        val recipe_titles = arrayOf(
             "Beef Stew",
             "Brocolli",
             "Cake",
@@ -80,7 +79,7 @@ class RecipeFragment : Fragment() {
             "Rice",
             "Ugali"
         )
-        val meal_type = arrayOf(
+        val recipe_types = arrayOf(
             "Lunch/Supper",
             "Breakfast",
             "Breakfast",
@@ -90,7 +89,7 @@ class RecipeFragment : Fragment() {
             "Supper",
             "Lunch"
         )
-        val difficulty = arrayOf(
+        val recipe_difficulties = arrayOf(
             "Intermediate",
             "Beginner",
             "Advanced",
@@ -100,10 +99,10 @@ class RecipeFragment : Fragment() {
             "Beginner",
             "Beginner"
         )
-        val people_served = intArrayOf(
+        val recipe_quantites = intArrayOf(
             10,12,12,3,5,6,8,1
         )
-        val ingredients= arrayOf(
+        val recipe_ingredients= arrayOf(
             "2 pounds boneless beef sirloin steak, cut into 1-inch cubes\n" +
                     "3 tablespoons flour\n" +
                     "2 tablespoons vegetable oil, divided\n" +
@@ -188,7 +187,7 @@ class RecipeFragment : Fragment() {
                     "8\n" +
                     "cups water"
         )
-        val preparation_steps = arrayOf(
+        val recipe_preparation_steps = arrayOf(
             "Coat beef with flour. Heat 1 tablespoon of the oil in large nonstick skillet or Dutch oven on medium-high heat. Add 1/2 of the beef; brown on all sides. Repeat with left over beef, adding remaining 1 tablespoon oil. Return all beef to skillet.\n" +
                     "2\tStir in Beef Stew Seasoning Mix and water. Add vegetables; bring to boil. Reduce heat to low; cover and simmer 15 minutes or until vegetables are tender.",
             "1.Clean and cut the broccoli into small pieces.2.Put oil in a pan and add sliced onion, slit green chilly, curry leaves, cinnamon stick and cardamom.3.Saute till the onion gets translucent.4.Add little water and coconut milk and stir in the broccoli.5.When the broccoli is almost done, add rest of the coconut milk turn off heat after a nice stir.6.Garnish with curry leaves and serve hot",
@@ -234,8 +233,8 @@ class RecipeFragment : Fragment() {
         )
         // Create an ArrayAdapter to populate the ListView with data
         recipeArrayList=ArrayList()
-        for (i in meal_type.indices){
-            val recipe = RecipeItem(meal_type[i],recipe_title[i], people_served[i], difficulty[i], ingredients[i], preparation_steps[i], imageId[i] )
+        for (i in recipe_types.indices){
+            val recipe = RecipeItem(recipe_types[i],recipe_titles[i], recipe_quantites[i], recipe_difficulties[i], recipe_ingredients[i], recipe_preparation_steps[i], recipe_images[i] )
             recipeArrayList.add(recipe)
         }
 
@@ -243,24 +242,24 @@ class RecipeFragment : Fragment() {
         listView.adapter = RecipeListAdapter(requireContext() as Activity, recipeArrayList)
 
         listView.setOnItemClickListener { parent, view, position, id ->
-            val meal_type = meal_type[position]
-            val difficulty = difficulty[position]
-            val imageId = imageId[position]
-            val recipe_title = recipe_title[position]
-            val people_served = people_served[position]
-            val ingredients = ingredients[position]
-            val preparation_steps = preparation_steps[position]
+            val recipe_type = recipe_types[position]
+            val recipe_difficulty = recipe_difficulties[position]
+            val recipe_image = recipe_images[position]
+            val recipe_title = recipe_titles[position]
+            val recipe_quantity = recipe_quantites[position]
+            val recipe_ingredients = recipe_ingredients[position]
+            val recipe_preparation_steps = recipe_preparation_steps[position]
 
 
             val i = Intent(requireContext() as Activity, RecipeItemActivity::class.java)
-            i.putExtra("meal_type", meal_type)
-            i.putExtra("difficulty", difficulty)
-            i.putExtra("image_id", imageId)
+            i.putExtra("recipe_type", recipe_type)
+            i.putExtra("recipe_difficulty", recipe_difficulty)
+            i.putExtra("recipe_image", recipe_image)
 
             i.putExtra("recipe_title", recipe_title)
-            i.putExtra("people_served", people_served)
-            i.putExtra("ingredients", ingredients)
-            i.putExtra("preparation_steps", preparation_steps)
+            i.putExtra("recipe_quantity", recipe_quantity)
+            i.putExtra("recipe_ingredients", recipe_ingredients)
+            i.putExtra("recipe_preparation_steps", recipe_preparation_steps)
 
 
             startActivity(i)

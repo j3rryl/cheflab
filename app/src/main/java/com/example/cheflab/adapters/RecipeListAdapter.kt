@@ -17,16 +17,15 @@ class RecipeListAdapter(private val context: Activity, private val arrayList: Ar
         val inflater: LayoutInflater = LayoutInflater.from(context)
         val view: View = inflater.inflate(R.layout.recipe_card, null)
 
-        val imageView: ImageView = view.findViewById(R.id.recipe_photo)
+        val recipeImage: ImageView = view.findViewById(R.id.recipe_photo)
         val recipeTitle: TextView = view.findViewById(R.id.recipe_title)
-        val mealType: TextView = view.findViewById(R.id.recipe_meal_type)
-
+        val recipeType: TextView = view.findViewById(R.id.recipe_meal_type)
         val recipeDifficulty: TextView = view.findViewById(R.id.recipe_difficulty)
 
-        imageView.setImageResource(arrayList[position].imageId)
+        recipeImage.setImageResource(arrayList[position].recipe_image)
         recipeTitle.text=arrayList[position].recipe_title
-        mealType.text=arrayList[position].meal_type
-        recipeDifficulty.text=arrayList[position].difficulty
+        recipeType.text=arrayList[position].recipe_type
+        recipeDifficulty.text=arrayList[position].recipe_difficulty
         if(recipeDifficulty.text=="Beginner"){
             recipeDifficulty.setTextColor(ContextCompat.getColor(context, R.color.green))
         }

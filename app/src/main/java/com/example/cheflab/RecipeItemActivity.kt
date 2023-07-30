@@ -20,30 +20,26 @@ class RecipeItemActivity : AppCompatActivity() {
         supportActionBar?.title = "Recipe Items"
 
         val recipe_title = intent.getStringExtra("recipe_title")
-        val meal_type = intent.getStringExtra("meal_type")
-        val difficulty = intent.getStringExtra("difficulty")
-        val image_id = intent.getIntExtra("image_id", R.drawable.ugali)
-        val people_served = intent.getIntExtra("people_served",3)
-        val ingredients = intent.getStringExtra("ingredients")
-        val prep = intent.getStringExtra("preparation_steps")
+        val recipe_type = intent.getStringExtra("recipe_type")
+        val recipe_difficulty = intent.getStringExtra("recipe_difficulty")
+        val recipe_image = intent.getIntExtra("recipe_image", R.drawable.ugali)
+        val recipe_quantity = intent.getIntExtra("recipe_quantity",3)
+        val recipe_ingredients = intent.getStringExtra("recipe_ingredients")
+        val recipe_preparation_steps = intent.getStringExtra("recipe_preparation_steps")
         supportActionBar?.title = recipe_title
 
-//        val rTitle: TextView = findViewById(R.id.recipe_title)
-        val rIngredients: TextView = findViewById(R.id.ingredients)
-        val rPrepSteps: TextView = findViewById(R.id.prep_steps)
-        val rRecipeMealType: TextView = findViewById(R.id.recipe_meal)
-        val rCookingDifficulty: TextView = findViewById(R.id.cooking_difficulty)
-
-        val rNumberPeopleServed: TextView = findViewById(R.id.number_people_served)
+        val recipeIngredients: TextView = findViewById(R.id.recipe_ingredients)
+        val recipePreparationSteps: TextView = findViewById(R.id.recipe_preparation_steps)
+        val recipeType: TextView = findViewById(R.id.recipe_type)
+        val recipeDifficulty: TextView = findViewById(R.id.cooking_difficulty)
+        val recipeQuantity: TextView = findViewById(R.id.recipe_quantity)
         val kenBurnsView: KenBurnsView = findViewById(R.id.kbView)
 
-        rPrepSteps.text = prep
-        rRecipeMealType.text= meal_type
-        rIngredients.text = ingredients
-        rCookingDifficulty.text = "Difficulty: "+difficulty
-        rNumberPeopleServed.text = people_served.toString()
-        Picasso.get().load(image_id).into(kenBurnsView)
-
-
+        recipePreparationSteps.text = recipe_preparation_steps
+        recipeType.text= recipe_type
+        recipeIngredients.text = recipe_ingredients
+        recipeDifficulty.text = "Difficulty: "+recipe_difficulty
+        recipeQuantity.text = recipe_quantity.toString()
+        Picasso.get().load(recipe_image).into(kenBurnsView)
     }
 }
