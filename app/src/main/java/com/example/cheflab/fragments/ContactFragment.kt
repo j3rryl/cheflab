@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.cheflab.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,7 +37,14 @@ class ContactFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contact, container, false)
+        val view = inflater.inflate(R.layout.fragment_contact, container, false)
+        //Toolbar
+        val toolbar: Toolbar = view.findViewById(R.id.contact_toolbar)
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        // Title
+        (activity as AppCompatActivity).supportActionBar?.title = "Contact"
+        return view
     }
 
     companion object {
